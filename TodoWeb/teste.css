@@ -1,0 +1,13 @@
+﻿body {
+    background-color: black;
+    color:white;
+}
+
+p {
+    color: red;
+}
+
+.negrito {
+    font-weight: bold;
+}
+}
