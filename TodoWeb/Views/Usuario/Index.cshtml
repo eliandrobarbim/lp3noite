@@ -1,0 +1,34 @@
+﻿@*É o que muda quando se passa o parãmetro*@
+@model IEnumerable<TodoWeb.Models.Usuario>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <th>UsuarioId</th>
+                <th>Nome</th>
+            </tr>
+            @*@@foreach (TodoWeb.Models.Usuario u in ViewBag.Usuarios ou var u in ViewBag.Usuarios ) // quando utiiza view bag
+    // abaixo quando passa parâmetro*@
+            @foreach(var u in Model) 
+            {
+            <tr>
+                <td>@u.UsuarioId</td>
+                <td>@u.Nome</td>
+            </tr>
+            }
+        </table>
+        <a href="/Usuario/create">Adicionar</a>
+    </div>
+</body>
+</html>
