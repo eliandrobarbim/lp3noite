@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace TodoWeb.Models
 {
@@ -9,7 +10,7 @@ namespace TodoWeb.Models
     {
         public int CategoriaId { get; set; }
         public string Nome { get; set; }
-
+        
         #region Chave Estrangeira
         //Chave Estrangeira - Region - oculta o código
         public int UsuarioId { get; set; }

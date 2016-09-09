@@ -32,11 +32,55 @@ namespace TodoWeb.Controllers
         {
             int id = int.Parse(form["UsuarioId"]);
             string nome = form["Nome"];
+            string email = form["Email"];
+            string senha = form["Senha"];
 
-            lista.Add(new Usuario { UsuarioId = id, Nome = nome });
+            lista.Add(new Usuario { UsuarioId = id, Nome = nome, Email = email, Senha = senha });
 
             return RedirectToAction("Index");
-           // return View();
+            // return View();
+        }
+        //GET: /usuario/update/6
+        public ActionResult Update(int id)
+        {
+            foreach (var item in lista)
+            {
+                if (item.UsuarioId == id)
+                {
+                    return View(item);
+                }
+
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public ActionResult Update(int id,FormCollection form)
+        {
+            //int id = int.Parse(form["UsuarioId"]);
+            foreach (var item in lista)
+            {
+                if (item.UsuarioId == id)
+                {
+                   item.Nome = form["Nome"];
+                   item.Email = form["Email"];
+                }
+            }
+            return RedirectToAction("Index");
+            // return View();
+        }
+
+        public ActionResult delete(int id)
+        {
+            foreach (var item in lista)
+            {
+                if (item.UsuarioId == id)
+                {
+                    lista.Remove(item);
+                    break;
+                }
+            }
+            return RedirectToAction("Index");
+            // return View();
         }
     }
-}
+    }

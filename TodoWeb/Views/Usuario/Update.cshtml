@@ -1,4 +1,4 @@
-﻿
+﻿@model TodoWeb.Models.Usuario
 @{
     Layout = null;
 }
@@ -8,36 +8,32 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>Update</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container"> 
         <!--/usuario/create?UsuarioId=3&Nome=Beltrano-->
-        <form action="/Usuario/create" method="post">
+        <form action="/Usuario/update/@Model.UsuarioId" method="post">
+
             <div class="form-group">
                 <label>UsuarioId</label>
-                <input type="number" name="UsuarioId" required min="1" class="form-control"/> 
+                <input type="number" name="UsuarioId"  disable min="1" class="form-control" value="@Model.UsuarioId"/> 
             </div>
 
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" name="Nome" required class="form-control" />
+                <input type="text" name="Nome" required class="form-control" value="@Model.Nome" />
             </div>
 
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="Email" required class="form-control"/>
-            </div>
-
-            <div class="form-group">
-                <label>Senha</label>
-                <input type="password" name="Senha" required class="form-control"/>
+                <input type="email" name="Email" required class="form-control" value="@Model.Email"/>
             </div>
 
             <button class="btn btn-success" type="submit">
            <span class="glyphicon glyphicon-floppy-disk"></span>
-            Salvar
+            Salvar 
             </button>  
 
             <a class="btn btn-default" href="/Usuario/index">
